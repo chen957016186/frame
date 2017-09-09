@@ -27,17 +27,18 @@ class Base{
     private static function connect(){
         try{
             //连接数据库
-            $dsn = c('mqldata.driver').";host=".c('mysql.host').";dbname=".c('mysqldata.dbname');
+//            $dsn = "mysql:host=127.0.0.1;dbname=c86";
+            $dsn = c('database.driver').":host=".c('database.host').";dbname=".c('database.dbname');
             //mysql登录账号
-            $username =c('mysqldata.username');
+            $username =c('database.username');
             //mysql登录密码
-            $password =c('mysqldata.password');
+            $password =c('database.password');
             //实例化PDO
-            $pdo = new PDO($dsn,$username,$password);
+            self::$pdo = new PDO($dsn,$username,$password);
             //设置字符集
-            $pdo->query('set names utf8');
-            //设置错误属性
-            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            self::$pdo->query('set names utf8');
+//            //设置错误属性
+            self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         }catch (PDOException $exception){
             //抛出异常
@@ -51,11 +52,12 @@ class Base{
      */
 
     public function find($id){
+//        echo $id;
         //获取主键
         //获取当前操作的数据表的主键在哪个字段里面
         $zj = $this->getPk();
-        //dd($zj)
-        //执行查询语句
+//        //dd($zj)
+//        //执行查询语句
         $sql = "select * from {$this->table} where {$zj}={$id}";
         $data = $this->query($sql);
         //dd($data);
@@ -69,14 +71,14 @@ class Base{
      */
     private function getPk(){
         //查看表结构
-        $sql = "desc".$this->table;
+        $sql = "desc ".$this->table;
         $data = $this->query($sql);
         //dd($data);
         //$zj接收主键
         $zj='';
         //数组循环获取到主键值
         foreach ($data as $v){
-            if($v[key]=='PRI'){
+            if($v["Key"]=='PRI'){
                 $zj = $v['Field'];
                 break;
             }
@@ -89,7 +91,7 @@ class Base{
      * query方法
      * 作用：执行有结果集的查询
      */
-    public function query(){
+    public function query($sql){
         try{
             //静态调用执行数据库
             $res = self::$pdo->query($sql);

@@ -15,12 +15,12 @@ class Entry extends Controller
     public function index(){
        // echo 'index';
         //测试数据库操作
-        include 'ddd';
-//        $data = Article::find(2);
-        //dd($data);
-        $test = 'houdunwang';
+
+        $data = Article::find(1);
+        dd($data);
+//        $test = 'houdunwang';
         //dd(View::with(compact('test')));
-        return View::with(compact('test'))->make();
+//        return View::with(compact('test'))->make();
     }
     //定义add方法
     public function add(){

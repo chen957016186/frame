@@ -2,7 +2,7 @@
 return[
   'driver'=>'mysql',
   'host'=>'127.0.0.1',
-  'dbname'=>'student',
+  'dbname'=>'c86',
   'username'=>'root',
   'password'=>'root'
 ];

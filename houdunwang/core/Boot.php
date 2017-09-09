@@ -9,12 +9,12 @@ class Boot
     //定义一个run方法
     public static function run()
     {
-        echo 1;die;
-//        self::handler();
+
+        self::handler();
 //        //静态调用init（）方法
-//        self::init();
+        self::init();
 //        //静态调用appRun()方法
-//        self::appRun();
+        self::appRun();
     }
 
     public static function handler()
