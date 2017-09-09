@@ -10,5 +10,26 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "filp/whoops": "^2.0@dev"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    },
+    "autoload":{
+        "files":[
+            "system/helper.php"
+        ],
+        "psr-4":{
+                "houdunwang\\":"houdunwang\\",
+                "app\\":"app\\",
+                "system\\":"system\\"
+
+        }
+    }
+
+
 }

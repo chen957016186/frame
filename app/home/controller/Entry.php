@@ -15,7 +15,8 @@ class Entry extends Controller
     public function index(){
        // echo 'index';
         //测试数据库操作
-        $data = Article::find(2);
+        include 'ddd';
+//        $data = Article::find(2);
         //dd($data);
         $test = 'houdunwang';
         //dd(View::with(compact('test')));

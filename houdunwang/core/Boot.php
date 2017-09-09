@@ -9,10 +9,19 @@ class Boot
     //定义一个run方法
     public static function run()
     {
-        //静态调用init（）方法
-        self::init();
-        //静态调用appRun()方法
-        self::appRun();
+        echo 1;die;
+//        self::handler();
+//        //静态调用init（）方法
+//        self::init();
+//        //静态调用appRun()方法
+//        self::appRun();
+    }
+
+    public static function handler()
+    {
+        $whoops = new \Whoops\Run;
+        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+        $whoops->register();
     }
 
 
