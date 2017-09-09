@@ -1,0 +1,14 @@
+{
+    "name": "chen957016186/frame",
+    "description": "PHP 框架",
+    "type": "porject",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "陈春",
+            "email": "957016186@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
